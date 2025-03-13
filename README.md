@@ -13,8 +13,7 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 
 - PHP 8.2+
 - Composer
-- MySQL 8.0+ ou PostgreSQL 13+
-- Extensões PHP: BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML
+- MySQL 8.0+
 
 ## Instalação
 
@@ -63,10 +62,10 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 - `name` - Nome da categoria
 - Timestamps (created_at, updated_at)
 
-### Movimentos
+### Movimentações
 - `id` - UUID, chave primária
-- `type` - Tipo do movimento ('in' para entrada, 'out' para saída)
-- `value` - Valor do movimento
+- `type` - Tipo do Movimentação ('in' para entrada, 'out' para saída)
+- `value` - Valor do Movimentação
 - `category_id` - Referência à categoria
 - `description` - Descrição do movimento (máx. 255 caracteres)
 - Timestamps (created_at, updated_at)
@@ -88,15 +87,15 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 }
 ```
 
-### Movimentos
+### Movimentações
 
-- `GET /api/movements` - Lista todos os movimentos
-- `GET /api/movements/{id}` - Obtém detalhes de um movimento
-- `POST /api/movements` - Cria um novo movimento
-- `PUT /api/movements/{id}` - Atualiza um movimento existente
-- `DELETE /api/movements/{id}` - Remove um movimento
+- `GET /api/movements` - Lista todos as movimentações
+- `GET /api/movements/{id}` - Obtém detalhes de uma movimentação
+- `POST /api/movements` - Cria uma novo movimentação
+- `PUT /api/movements/{id}` - Atualiza uma movimentação existente
+- `DELETE /api/movements/{id}` - Remove uma movimentação
 
-#### Exemplo de Requisição para Criar Movimento
+#### Exemplo de Requisição para Criar Movimentação
 ```json
 {
   "type": "in",
@@ -106,8 +105,6 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 }
 ```
 
-## Validação
+---
 
-A API implementa validações rigorosas para garantir a integridade dos dados:
-
-- Tipos de moviment
+## 📝 Made by Felicio
