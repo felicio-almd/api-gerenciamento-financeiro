@@ -22,4 +22,10 @@ class Category extends Model
     public function movements(){
         return $this->hasMany(Movement::class, 'category_id', 'id');
     }
+
+    protected static function booted() {
+        static::deleting(function ($category) {
+            $category->movements()->update(['category_id' => null]);
+        });
+    }
 }

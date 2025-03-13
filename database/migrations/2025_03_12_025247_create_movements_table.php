@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->enum('type', ['in', 'out']);
             $table->float('value');
-            $table->string('category_id')->references('id')->on('categories');
+            $table->string('category_id')->references('id')->on('categories')->nullable();
             $table->string('description', 255);
             $table->timestamps();
         });
