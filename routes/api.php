@@ -3,20 +3,18 @@
 use App\Http\Controllers\Auth\AuthenticatedTokenController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MovementController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::apiResource('/users', UserController::class);
 
 Route::post('/login', [AuthenticatedTokenController::class, 'store'])
     ->middleware('guest')
     ->name('login');
 
-Route::post('/logout', [AuthenticatedTokenController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
+Route::post('/logout', [AuthenticatedTokenController::class, 'destroy']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource('/categories',CategoryController::class);
