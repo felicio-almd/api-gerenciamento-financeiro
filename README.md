@@ -45,7 +45,12 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 
 5. ESTEJA COM O BANCO DE DADOS ATIVADO e Configure o banco de dados no arquivo `.env`
 
-6. Execute as migrações:
+6. Execute as migrações (se preferir direto):
+    ```bash
+   php artisan migrate --seed
+   ```
+    
+6.1 Execute as migrações:
    ```bash
    php artisan migrate
    ```
