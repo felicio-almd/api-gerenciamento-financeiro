@@ -18,10 +18,15 @@ class Movement extends Model
         'type',
         'value',
         'category_id',
+        'user_id',
         'description'
     ];
 
     public function categories () {
         return $this->belongsTo(Category::class);
+    }
+
+    public function users () {
+        return $this->belongsTo(User::class);
     }
 }

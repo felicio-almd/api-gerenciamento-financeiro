@@ -49,4 +49,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function movements(){
+        return $this->hasMany(Movement::class, 'user_id', 'id');
+    }
 }

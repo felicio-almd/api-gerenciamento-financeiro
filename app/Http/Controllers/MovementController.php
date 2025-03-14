@@ -21,7 +21,7 @@ class MovementController extends Controller
      */
     public function index(): JsonResponse
     {
-        $movements = $this->movements->all();
+        $movements = $this->movements->where('user_id', auth()->id())->get();
 
         return response()->json($movements, Response::HTTP_OK);
     }
@@ -41,9 +41,11 @@ class MovementController extends Controller
     {
         $data = $request->validated();
 
+        $data['user_id'] = auth()->id();
+
         $movement = $this->movements->create($data);
 
-        return response()->json( $movement, Response::HTTP_CREATED);
+        return response()->json($movement, Response::HTTP_CREATED);
     }
 
     /**
@@ -51,7 +53,7 @@ class MovementController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $movement = $this->movements->findOrFail($id);
+        $movement = $this->movements->where('user_id', auth()->id())->findOrFail($id);
 
         return response()->json($movement, Response::HTTP_OK);
     }
@@ -69,7 +71,7 @@ class MovementController extends Controller
      */
     public function update(UpdateMovementsRequest $request, $id)
     {
-        $movement = $this->movements->findOrFail($id);
+        $movement = $this->movements->where('user_id', auth()->id())->findOrFail($id);
         $data = $request->validated();
 
         $movement->update($data);
@@ -82,7 +84,7 @@ class MovementController extends Controller
      */
     public function destroy($id)
     {
-        $movement = $this->movements->findOrFail($id);
+        $movement = $this->movements->where('user_id', auth()->id())->findOrFail($id);
 
         $movement->delete();
 

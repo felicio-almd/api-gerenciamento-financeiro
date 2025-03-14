@@ -16,6 +16,7 @@ return new class extends Migration
             $table->enum('type', ['in', 'out']);
             $table->float('value');
             $table->string('category_id')->references('id')->on('categories')->nullable();
+            $table->string('user_id')->references('id')->on('user')->nullable()->onDelete('cascade');
             $table->string('description', 255);
             $table->timestamps();
         });
