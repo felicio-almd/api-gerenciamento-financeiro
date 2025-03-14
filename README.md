@@ -14,12 +14,13 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 - PHP 8.2+
 - Composer
 - MySQL 8.0+
+- Necessário rodar o mysql!!
 
 ## Instalação
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/felicio-almd/nome-do-repositorio.git
    cd nome-do-repositorio
    ```
 
@@ -38,7 +39,7 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
    php artisan key:generate
    ```
 
-5. Configure o banco de dados no arquivo `.env`
+5. ESTEJA COM O BANCO DE DADOS ATIVADO e Configure o banco de dados no arquivo `.env`
 
 6. Execute as migrações:
    ```bash
