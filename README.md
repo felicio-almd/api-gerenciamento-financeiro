@@ -9,6 +9,10 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 - **Backend**: API RESTful desenvolvida em Laravel 11+
 - **Frontend**: Interface de usuário construída com Vue 3 (em repositório separado)
 
+# Features
+- É possivel registrar seu próprio usuario e logar com o acesso dele
+- Cada usuario tem suas próprias movimentações (as tabelas são relacionadas), as categorias são gerais para todos
+
 ## Requisitos
 
 - PHP 8.2+
@@ -20,8 +24,8 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/felicio-almd/nome-do-repositorio.git
-   cd nome-do-repositorio
+   git clone https://github.com/felicio-almd/api-gerenciamento-financeiro.git
+   cd api-gerenciamento-financeiro
    ```
 
 2. Instale as dependências:
@@ -101,6 +105,7 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 {
   "type": "in",
   "value": 1500.50,
+  "user_id": "01jp46awbx12e0rnst3ea6hpm8",
   "category_id": "01jp46awbx12e0rnst3ea6hpm8",
   "description": "Pagamento de salário mensal"
 }
