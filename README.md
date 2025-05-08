@@ -9,9 +9,76 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 - **Backend**: API RESTful desenvolvida em Laravel 11+
 - **Frontend**: Interface de usuário construída com Vue 3 (em repositório separado)
 
-# Features
-- É possivel registrar seu próprio usuario e logar com o acesso dele
-- Cada usuario tem suas próprias movimentações (as tabelas são relacionadas), as categorias são gerais para todos
+## Features
+- Registro e autenticação de usuários
+- Cada usuário possui suas próprias movimentações (relacionadas por chave estrangeira)
+- As categorias são compartilhadas entre todos os usuários
+
+---
+
+## ✅ Executando com Docker (Desenvolvimento) (BRANCH ADD-DOCKER)
+
+Este projeto está preparado para rodar via Docker de forma simples e rápida.
+
+### Pré-requisitos
+
+- Docker e Docker Compose instalados
+
+### Passo a passo
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/felicio-almd/api-gerenciamento-financeiro.git
+   cd api-gerenciamento-financeiro
+   ```
+
+2. Crie o arquivo de configuração do ambiente:
+```bash
+cp .env.example .env
+```
+
+3. Inicie os containers:
+```bash
+    docker-compose up -d --build
+   ```
+
+VOCE TAMBEM PODE (OPCIONAL)
+4. Acesse o container da aplicação:
+```bash
+    docker exec -it api-gerenciamento-financeiro_app_1 bash
+   ```
+
+5. Gere a key do Laravel:
+```bash
+    php artisan key:generate
+   ```
+
+6.Rode as migrations (e seeds se desejar):
+```bash
+   php artisan migrate --seed
+   ```
+
+
+Configuração do Nginx
+O container usa o arquivo nginx-site.conf para definir as rotas e regras do servidor web. Esse arquivo é incluído no Dockerfile e copiado para o container para servir a aplicação via porta 80 e 443.
+
+☁️ Deployment com Render
+A aplicação está publicada no Render, utilizando PostgreSQL como banco de dados.
+
+Estratégia de Deploy
+A imagem Docker é construída a partir do Dockerfile presente no projeto.
+
+O processo de inicialização em produção é feito com o script 00-laravel-deploy.sh, responsável por:
+
+Gerar a key da aplicação
+
+Rodar as migrations
+
+Cachear as configurações
+
+Iniciar o PHP-FPM e Nginx no ambiente de produção
+
+## CASO QUEIRA RODAR SEM DOCKER (BRANCH MAIN)
 
 ## Requisitos
 
@@ -64,6 +131,7 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
    ```bash
    php artisan serve
    ```
+   
 
 ## Estrutura do Banco de Dados
 
@@ -117,5 +185,15 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 ```
 
 ---
+
+🛠 Arquivos importantes
+Dockerfile: Define a imagem da aplicação Laravel com Nginx e PHP
+
+docker-compose.yml: Sobe a aplicação e o banco de dados MySQL localmente
+
+nginx-site.conf: Configuração personalizada para o Nginx servir a aplicação Laravel
+
+00-laravel-deploy.sh: Script de boot para ambiente de produção no Render
+
 
 ## 📝 Made by Felicio
