@@ -13,6 +13,7 @@ Esta API faz parte de um projeto Fullstack que permite gerenciar movimentações
 - Registro e autenticação de usuários
 - Cada usuário possui suas próprias movimentações (relacionadas por chave estrangeira)
 - As categorias são compartilhadas entre todos os usuários
+- Docker para containerizar a aplicação e poder ser feito o deploy
 
 ---
 
