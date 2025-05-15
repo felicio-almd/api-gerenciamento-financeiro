@@ -2,7 +2,7 @@
 
 API backend desenvolvida com Laravel 11+ para suportar um sistema de gerenciamento de movimentações financeiras.
 
-<h2 align="center">Link da API: <a href="https://api-gerenciamento-financeiro-vqi8.onrender.com/api/">https://api-gerenciamento-financeiro-vqi8.onrender.com/api/</a></h2>
+<h2 align="center">Link da API: <a href="https://api-gerenciamento-financeiro-vqi8.onrender.com/api/">https://api-gerenciamento-financeiro-vqi8.onrender.com/</a></h2>
 
 ## Visão Geral
 
